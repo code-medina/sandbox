@@ -1,0 +1,120 @@
+/* 
+css
+:root {
+  --color-fondo: #ffffff;
+  --color-texto: #421313;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fondo: #421313;
+    --color-texto: #ffffff;
+  }
+}
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+--------------------------
+ color-schema
+ :root {
+    color-scheme: light dark;
+}
+body {
+    background-color: ligth-dark(#ffffff, #421313);
+    color: light-dark(#421313, #ffffff);
+}
+
+# con atributo data-theme en html para indicar el color deberia usar js para cambiar
+:root {
+    color-scheme: light dark;
+    
+  --fondo: #ffffff;
+  --color: #421313;
+}
+[data-theme="dark"] {
+  --color: #ffffff;
+  --fondo: #421313;
+}
+body {
+    background-color: var(--fondo);
+    color: var(--color);
+}
+
+# con ckecbox sin persistencia
+:root {
+    --bg: white;
+    --text: black;
+}
+
+body:has(#toggle-theme:checked) {
+    --bg: #121212;
+    --text: #eee;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+## opcion 
+:root {
+  color-scheme: light dark;
+  --claro: #ffffff;
+  --oscuro: #421313;
+
+  --fondo: var(--claro);
+  --color-texto: var(--oscuro);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="linght"]) {
+    --fondo: var(--oscuro);
+    --color-texto: var(--claro);
+  }
+}
+body {
+  background-color: var(--fondo);
+  color: var(--color-texto);
+}
+
+*/
+
+/*  #con persistencia js  */
+:root {
+  color-scheme: light dark;
+  --claro: #ffffff;
+  --oscuro: #421313;
+}
+
+/* default: sigue al sistema */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--oscuro);
+    --text: var(--claro);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--claro);
+    --text: var(--oscuro);
+  }
+}
+
+/* override manual */
+:root[data-theme="dark"] {
+  --bg: var(--oscuro);
+  --text: var(--claro);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: var(--claro);
+  --text: var(--oscuro);
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
