@@ -1,5 +1,6 @@
-**/node_modules/
-**/dist/
-.env
 *.log
-/notes/
+**/notes
+**/node_modules
+**/.env
+**/dist
+**/build
