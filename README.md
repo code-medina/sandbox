@@ -6,6 +6,7 @@ frontend
 
 - eslint-prettier-vite-config
 - theme implementacion de dark-theme
+- graphics-react  : recharts libreri & ts
 
 experiments
 
