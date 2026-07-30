@@ -1,0 +1,12 @@
+.containerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+@media (max-width: 600px) {
+  .containerNav {
+    flex-direction: column;
+    gap: 2px;
+  }
+}

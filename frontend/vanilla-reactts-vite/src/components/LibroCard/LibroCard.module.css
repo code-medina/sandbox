@@ -1,0 +1,4 @@
+.containerLibro {
+  display: flex;
+  flex-direction: column;
+}
